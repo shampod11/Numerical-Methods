@@ -1,0 +1,62 @@
+def find_smallest_number(numbers):
+    smallest = numbers[0]
+    for num in numbers:
+        if num < smallest:
+            smallest = num
+    return smallest
+    
+def reverse_string(s):
+    reversed_str = ""
+    for char in s:
+        reversed_str = char + reversed_str
+    return reversed_str
+
+def check_number(num):
+    if num > 0:
+        return "Positive"
+    elif num < 0:
+        return "Negative"
+    else:
+        return "Zero"
+
+def check_case(char):
+    if char.isupper():
+        return "Uppercase"
+    elif char.islower():
+        return "Lowercase"
+    else:
+        return "Not an alphabetic character"
+
+def calculate_grade(marks):
+    if 90 <= marks <= 100:
+        return "Grade A"
+    elif 80 <= marks < 90:
+        return "Grade B"
+    elif 70 <= marks < 80:
+        return "Grade C"
+    elif 60 <= marks < 70:
+        return "Grade D"
+    elif 0 <= marks < 60:
+        return "Grade F"
+    else:
+        return "Invalid marks"
+
+if __name__ == "__main__":
+   
+    numbers = [5, 3, 8, 1, 4]
+    print("Smallest number:", find_smallest_number(numbers))
+
+  
+    s = "hello"
+    print("Reversed string:", reverse_string(s))
+
+    num = float(input("Enter a number: "))
+    print(check_number(num))
+
+  
+    char = input("Enter a character: ")
+    print(check_case(char))
+
+   
+    marks = float(input("Enter the student's marks (0-100): "))
+    print(calculate_grade(marks))
