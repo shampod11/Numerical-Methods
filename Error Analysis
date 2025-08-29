@@ -1,0 +1,12 @@
+from math import fabs
+def calculate_error(T, A):
+    ae = fabs(T-A)
+    re = fabs(ae/T)
+    pe = re*100
+    return ae, re, pe
+true_value = float(input("Enter true value: "))
+approx_value = float(input("Enter approx value: "))
+ae, re, pe = calculate_error(true_value, approx_value)
+print(f"Absolute Error: {ae:.6f}")
+print(f"Relative Error: {re:.6f}")
+print(f"True Percentage Relative Error: {pe:.6f}")
