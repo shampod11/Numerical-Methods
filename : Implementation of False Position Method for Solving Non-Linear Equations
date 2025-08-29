@@ -1,0 +1,26 @@
+from math import fabs
+def f(x, expr):
+    return eval(expr)
+def false_position(expr, xl, xu, eps=0.001, max_itr=200):
+    if f(xl, expr) * f(xu, expr) > 0:
+        print("Wrong guess! f(xl) and f(xu) must have opposite signs.")
+        return None
+    for i in range(max_itr):
+        xr =(xl*f(xu,expr)-xu*f(xl, expr))/(f(xu, expr)-f(xl, expr))
+        if f(xr, expr) == 0 or fabs(f(xr, expr)) < eps:
+            return xr
+        if f(xl, expr) * f(xr, expr) < 0:
+            xu = xr
+        else:
+            xl = xr
+    return xr  
+expr = input("Enter function f(x): ") 
+xl = float(input("Enter lower guess xl: "))
+xu = float(input("Enter upper guess xu: "))
+eps = float(input("Enter tolerance (eps): "))
+max_itr = int(input("Enter maximum iterations: "))
+xr = false_position(expr, xl, xu, eps, max_itr)
+if xr is not None:
+    print("Root found :", xr)
+else:
+    print("No root found.")
